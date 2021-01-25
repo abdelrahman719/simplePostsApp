@@ -1,0 +1,42 @@
+<%- include('shared/header.ejs') %>
+
+<div class="container mt-5 pt-5">
+    <div class="row">
+        <div class="col-md-8 m-auto card p-5">
+            <div class="">
+                <h3>Account Setting</h3>
+                <hr>
+                <form action="/handelEditPassword" method="POST">
+                    <input placeholder="Enter Old Password" name="oldPassword" type="password" class="form-control my-2">
+                    <% if (wrongpassword) { %>
+                    <h5 class="bg-danger text-center">wrongpassword</h5>
+
+                    <% } %>
+           
+                    <input placeholder="New Password" name="newPassword" type="password" class="form-control my-2">
+                    <% if (errors.find(err=>err.param=='newPassword')) { %>
+                    <h6 class="alert alert-danger text-center py-1">
+                        invalid
+                    </h6>
+                    <% } %>
+                    <input placeholder="Repeat Password" name="ConformNewPassword" type="password"
+                        class="form-control my-2">
+                    <% if (notEqualpass) { %>
+                    <h5 class="bg-danger text-center">not equal password</h5>
+
+                    <% } %>
+                    <% if (errors.find(err=>err.param=='ConformNewPassword')) { %>
+                    <h6 class="alert alert-danger text-center py-1">
+                        invalid
+                    </h6>
+                    <% } %>
+                    <button class="btn btn-info mt-3">Save Setting</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<%- include('shared/footer.ejs') %>
