@@ -1,0 +1,48 @@
+<%- include('shared/header.ejs') %>
+
+
+<div class="cover">
+
+</div>
+
+<div class="container">
+    <div class="row">
+       
+        <div class="col-md-4 ">
+            <div class="person card pb-5 px-5  text-center">
+                <img src="/images/man.jpg" width="250" alt="">
+            </div>
+        </div>
+       
+
+
+        <div class="col-md-8 pt-4">
+            <h2> <%= nickname %></h2>
+            <h4 class="text-muted">Full Stack Web</h4>
+            <% for( let index = 0; index < posts.length; index++ ) { %>
+            <div class="post card p-4 auto">
+                <div class="media">
+                    <img src="/images/man.jpg" width="60" class="mr-3" alt="...">
+                    <div class="media-body">
+                        <h5 class="mt-0"> <%= nickname %></h5>
+                        <p  class="date">  <%= posts[index].dateCreation %> </p>
+                    </div>
+                </div>
+                <hr>
+                <h3> <%= posts[index].title %></h3>
+                <p class="pt-4"><%= posts[index].text %></p>
+
+            </div>
+            <% } %>
+        </div>
+
+      
+
+
+    </div>
+</div>
+
+
+
+
+<%- include('shared/footer.ejs') %>
